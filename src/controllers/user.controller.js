@@ -239,7 +239,7 @@ const upadteAccountDetails = asyncHandler(async (req, res) => {
         throw new ApiError(400, 'All fields are required')
     }
     const user = await User.findByIdAndUpdate(
-        req.user?._id
+        req.user?._id,
         {
             $set: {
                 fullName: fullName,
@@ -265,7 +265,7 @@ const updateUserAvatar = asyncHandler(async (req, res) => {
         throw new ApiError(500, 'Error while uploading avatar')
     }
     const user = await User.findByIdAndUpdate(
-        req.user?._id
+        req.user?._id,
         {
             $set: {
                 avatar : avatar.url,
@@ -291,7 +291,7 @@ const updateUserCoverImage = asyncHandler(async (req, res) => {
         throw new ApiError(500, 'Error while uploading coverImageLocalPath')
     }
     const user = await User.findByIdAndUpdate(
-        req.user?._id
+        req.user?._id,
         {
             $set: {
                 coverImage : coverImage.url,
